@@ -1,0 +1,13 @@
+pages:
+  stage: deploy
+  image: bramas/tps-c:latest
+  script:
+  - curl https://git.unistra.fr/bramas/automated-test/-/archive/master/automated-test-master.tar | tar -x
+  - cp -r automated-test-master/public public
+  - cp automated-test-master/*.bash ./
+  - bash test-all.bash
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
