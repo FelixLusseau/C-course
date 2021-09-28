@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1 id="recette-secrète">Recette secrète</h1>
+<p>crédit: http://www.france-ioi.org</p>
+<h2 id="ce-que-doit-faire-votre-programme">Ce que doit faire votre programme :</h2>
+<p>Vous vous trouvez devant une source d'eau qui jaillit de la montagne, et vous disposez de deux tonneaux vides de capacités 5 litres et 3 litres. Écrivez un programme qui effectue une série de transvasements permettant d'obtenir exactement 4 litres d'eau dans le plus grand tonneau. Arrêtez-vous bien dès que le grand tonneau contient exactement 4 litres.</p>
+<h2 id="commandes-pour-cet-exercice">Commandes pour cet exercice</h2>
+<p>Pour doser l'eau dans les tonneaux, vous disposez de ces trois instructions : <code>Remplir tonneau Vider tonneau Transférer tonneauSource -&gt; tonneauDestination</code></p>
+<p>Pour identifier un tonneau à l'emplacement de tonneau, tonneauSource ou tonneauDestination, utilisez sa contenance : 3 ou 5.</p>
+<p>Quand on transvase un tonneau dans l'autre, on s'arrête lorsque le tonneau source est vide ou lorsque le tonneau destination est plein à ras bord. Ainsi, après chaque opération, on peut savoir exactement combien de litres d'eau se trouvent dans les deux tonneaux. En C, les trois instructions s'écrivent comme suit : <code>remplir(tonneau); vider(tonneau); transferer(tonneauSource, tonneauDestination);</code></p>
+<p>Le programme suivant expérimente les trois instructions décrites ci-dessus.</p>
+<p>```C</p>
+<h1 id="include-stdio.h">include &lt;stdio.h&gt;</h1>
+<h1 id="include-tonneaux.h">include &quot;tonneaux.h&quot;</h1>
+<p>int main() { remplir(5); transferer(5, 3); vider(5); } ```</p>
+</body>
+</html>
