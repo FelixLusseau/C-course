@@ -1,0 +1,17 @@
+
+####
+#### Compilation
+####
+
+####
+#### Test 1
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./correction
+Hello World
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff
