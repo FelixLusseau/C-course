@@ -1,0 +1,106 @@
+
+####
+#### Compilation
+####
+
+####
+#### Test entrée/sortie : test-0
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./molky
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 1 quilles dont la somme des points fait 12, vous marquez donc 12 points
+Votre score est maintenant de 12
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 1 quilles dont la somme des points fait 12, vous marquez donc 12 points
+Votre score est maintenant de 24
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 1 quilles dont la somme des points fait 12, vous marquez donc 12 points
+Votre score est maintenant de 36
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 1 quilles dont la somme des points fait 12, vous marquez donc 12 points
+Votre score est maintenant de 48
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 1 quilles dont la somme des points fait 2, vous marquez donc 2 points
+Votre score est maintenant de 50
+Gagné 🏆 🎉 (en 5 lancers)
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff end
+/tmp/tps-c.out.34147
+LINEC: 1 -
+Gagné 🏆 🎉 (en 5 lancers)
+
+####
+#### Test entrée/sortie : test-1
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./molky
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 1 quilles dont la somme des points fait 12, vous marquez donc 12 points
+Votre score est maintenant de 12
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 1 quilles dont la somme des points fait 12, vous marquez donc 12 points
+Votre score est maintenant de 24
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 1 quilles dont la somme des points fait 12, vous marquez donc 12 points
+Votre score est maintenant de 36
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 1 quilles dont la somme des points fait 12, vous marquez donc 12 points
+Votre score est maintenant de 48
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 2 quilles dont la somme des points fait 20, vous marquez donc 2 points
+Votre score est maintenant de 50
+Gagné 🏆 🎉 (en 5 lancers)
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff end
+/tmp/tps-c.out.34147
+LINEC: 1 -
+Gagné 🏆 🎉 (en 5 lancers)
+
+####
+#### Test entrée/sortie : test-2
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./molky
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 1 quilles dont la somme des points fait 12, vous marquez donc 12 points
+Votre score est maintenant de 12
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 1 quilles dont la somme des points fait 12, vous marquez donc 12 points
+Votre score est maintenant de 24
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 1 quilles dont la somme des points fait 12, vous marquez donc 12 points
+Votre score est maintenant de 36
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 1 quilles dont la somme des points fait 12, vous marquez donc 12 points
+Votre score est maintenant de 48
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 5 quilles dont la somme des points fait 20, vous marquez donc 5 points
+Votre score est maintenant de 25
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 5 quilles dont la somme des points fait 20, vous marquez donc 5 points
+Votre score est maintenant de 30
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 1 quilles dont la somme des points fait 10, vous marquez donc 10 points
+Votre score est maintenant de 40
+🎳
+Nombre de quilles tombées? Somme des points des quilles tombées? Vous avez renversé 10 quilles dont la somme des points fait 40, vous marquez donc 10 points
+Votre score est maintenant de 50
+Gagné 🏆 🎉 (en 8 lancers)
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff end
+/tmp/tps-c.out.34147
+LINEC: 1 -
+Gagné 🏆 🎉 (en 8 lancers)
