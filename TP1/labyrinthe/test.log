@@ -1,0 +1,32 @@
+
+####
+#### Compilation
+####
+cc -DNO_UI -Wall -Werror -Wextra -g     kirby.c  -ltps -lSDL2 -lSDL2_ttf -o kirby
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./kirby
+fruitInBag : -1
+F : b
+loaded map of size 7 7
+WWWWWWW
+W.....W
+WW.WWWW
+W..WW.W
+W.W...W
+W...WWW
+WWWWWWW
+-> 5 3 a
+-1 b 1 a
+0
+5 3
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff end
+/tmp/tps-c.out.37339
+LINEC: 3 -
+-1 b 1 a
+0
+5 3
