@@ -1,0 +1,20 @@
+
+####
+#### Compilation
+####
+cc -g -Wall -Wextra -Werror    bonjour.c   -o bonjour
+
+####
+#### Execution
+####
+
+#### Execution
+Bonjour le monde
+==> exitcode: 0
+
+#### Comparaison
+
+####
+#### Execution Valgrind
+####
+Bonjour le monde
