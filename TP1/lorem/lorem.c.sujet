@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+int main(void) {
+  puts("Lorem ipsum dolor sit"
+  " amet, consectetur adipiscing"
+  " elit, sed do eiu" "smod tempor \
+incididunt ut labore et dolore \
+magna aliqua.");
+  puts("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
+}
