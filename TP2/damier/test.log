@@ -16,7 +16,7 @@
 
 #### Comparaison
 #### diff end
-/tmp/tps-c.out.11592
+/tmp/tps-c.out.5621
 LINEC: 2 -
 #.
 .#
@@ -36,7 +36,7 @@ LINEC: 2 -
 
 #### Comparaison
 #### diff end
-/tmp/tps-c.out.11592
+/tmp/tps-c.out.5621
 LINEC: 4 -
 #.#.
 .#.#
@@ -49,15 +49,46 @@ LINEC: 4 -
 
 #### Execution
 #### valgrind -q --leak-check=full --error-exitcode=43 ./damier
-
+#
 ==> exitcode: 0
 
 #### Comparaison
 #### diff end
-/tmp/tps-c.out.11592
+/tmp/tps-c.out.5621
 LINEC: 1 -
+#
 
-1c1
-< 
----
-> #
+####
+#### Test 4
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./damier
+#.#.#.#.#.#
+.#.#.#.#.#.
+#.#.#.#.#.#
+.#.#.#.#.#.
+#.#.#.#.#.#
+.#.#.#.#.#.
+#.#.#.#.#.#
+.#.#.#.#.#.
+#.#.#.#.#.#
+.#.#.#.#.#.
+#.#.#.#.#.#
+==> exitcode: 0
+
+#### Comparaison
+#### diff end
+/tmp/tps-c.out.5621
+LINEC: 11 -
+#.#.#.#.#.#
+.#.#.#.#.#.
+#.#.#.#.#.#
+.#.#.#.#.#.
+#.#.#.#.#.#
+.#.#.#.#.#.
+#.#.#.#.#.#
+.#.#.#.#.#.
+#.#.#.#.#.#
+.#.#.#.#.#.
+#.#.#.#.#.#

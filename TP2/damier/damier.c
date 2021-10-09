@@ -4,12 +4,12 @@ int main()
 {
     int n;
     scanf("%i", &n);
-    for (int i=1; i<=n/2; i++)
-    {
-        if (n==1)
+    if (n==1)
         {
             printf("#");
         }
+    for (int i=1; i<=n/2; i++)
+    {
         if (n%2!=0 && n>1)
         {
           printf("#");
@@ -39,9 +39,15 @@ int main()
               printf(".#");
           }  
           printf("\n");
-        }
-        
-        
+        }  
     }
+    if (n%2!=0 && n>1)
+        {
+          printf("#");
+          for (int i=1; i<=n/2; i++)
+          {
+              printf(".#");
+          }  
+        }
     return 0;
 }
