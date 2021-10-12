@@ -1,0 +1,31 @@
+
+####
+#### Compilation
+####
+cc     tests.c   -o tests
+
+####
+#### Test entrée/sortie : test-0
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./tests
+min: 3 max: 10
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff
+
+####
+#### Test entrée/sortie : test-1
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./tests
+min: -15 max: 3654123
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff
