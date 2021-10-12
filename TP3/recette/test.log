@@ -1,0 +1,85 @@
+
+####
+#### Compilation
+####
+cc     recette.c   -o recette
+
+####
+#### Test entrée/sortie : test-0
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./recette
+134
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff end
+/tmp/tps-c.out.11908
+LINEC: 1 -
+134
+
+####
+#### Test entrée/sortie : test-1
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./recette
+9
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff end
+/tmp/tps-c.out.11908
+LINEC: 1 -
+9
+
+####
+#### Test entrée/sortie : test-2
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./recette
+5
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff end
+/tmp/tps-c.out.11908
+LINEC: 1 -
+5
+
+####
+#### Test entrée/sortie : test-3
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./recette
+23
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff end
+/tmp/tps-c.out.11908
+LINEC: 1 -
+23
+
+####
+#### Test entrée/sortie : test-4
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./recette
+11805
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff end
+/tmp/tps-c.out.11908
+LINEC: 1 -
+11805
