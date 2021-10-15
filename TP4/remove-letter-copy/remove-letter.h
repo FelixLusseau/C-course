@@ -13,7 +13,9 @@ char * removeLetter(char * chaineinit, char carac)
         if (chaine[i] == carac)
         {
             for (int k=i; chaine[k]!='\0'; k++)
-            chaine[k]=chaine[k+1];
+            {
+                chaine[k]=chaine[k+1];
+            }
             i--;
         } 
     }
