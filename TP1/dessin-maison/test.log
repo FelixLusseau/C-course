@@ -1,0 +1,5 @@
+
+####
+#### Compilation
+####
+cc     figures.c  -ltps -lSDL2 -lSDL2_ttf -o figures
