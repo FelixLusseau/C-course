@@ -1,0 +1,5 @@
+
+####
+#### Compilation
+####
+cc -DNO_UI     grille.c  -ltps -lSDL2 -lSDL2_ttf -o grille
