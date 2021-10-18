@@ -1,0 +1,9 @@
+==9432== Conditional jump or move depends on uninitialised value(s)
+==9432==    at 0x109486: disk (in /home/felixlusseau/Documents/Cours/Seafile/Ma bibliothèque/Algorithmique et programmation C/MesExercicesCSurGit/annales/disk/tests)
+==9432==    by 0x10990F: main (in /home/felixlusseau/Documents/Cours/Seafile/Ma bibliothèque/Algorithmique et programmation C/MesExercicesCSurGit/annales/disk/tests)
+==9432== 
+ ## 
+####
+####
+ ## 
+
