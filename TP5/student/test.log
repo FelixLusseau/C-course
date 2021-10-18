@@ -1,0 +1,45 @@
+
+####
+#### Compilation
+####
+
+####
+#### Test entrée/sortie : test-0
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./tests
+id:        1
+name:      Bob
+birthYear: 1978
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff
+
+####
+#### Test entrée/sortie : test-1
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./tests
+Etudiant non créé
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff
+
+####
+#### Test entrée/sortie : test-2
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./tests
+Etudiant non créé
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff
