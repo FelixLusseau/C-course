@@ -1,0 +1,5 @@
+int main() {
+    if(1) {
+        printf("Hello");
+    return 0;
+}
