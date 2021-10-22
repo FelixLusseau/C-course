@@ -1,0 +1,27 @@
+
+####
+#### Compilation
+####
+cc    -c -o tests.o tests.c
+cc    -c -o linked-list.o linked-list.c
+gcc -o tests.o -c tests.c -Wall -Wextra -Werror
+gcc -o tests tests.o linked-list.o
+/usr/bin/ld : tests.o : dans la fonction « test_size » :
+tests.c:(.text+0x2d2) : référence indéfinie vers « ll_size »
+/usr/bin/ld : tests.o : dans la fonction « test_prepend » :
+tests.c:(.text+0x3a7) : référence indéfinie vers « ll_prepend »
+/usr/bin/ld : tests.c:(.text+0x440) : référence indéfinie vers « ll_size »
+/usr/bin/ld : tests.o : dans la fonction « test_first_last » :
+tests.c:(.text+0x4ca) : référence indéfinie vers « ll_first »
+/usr/bin/ld : tests.c:(.text+0x50b) : référence indéfinie vers « ll_last »
+/usr/bin/ld : tests.o : dans la fonction « test_pop_last » :
+tests.c:(.text+0x594) : référence indéfinie vers « ll_size »
+/usr/bin/ld : tests.c:(.text+0x61e) : référence indéfinie vers « ll_pop_last »
+/usr/bin/ld : tests.c:(.text+0x671) : référence indéfinie vers « ll_last »
+/usr/bin/ld : tests.c:(.text+0x6b3) : référence indéfinie vers « ll_size »
+/usr/bin/ld : tests.o : dans la fonction « test_pop_first » :
+tests.c:(.text+0x73d) : référence indéfinie vers « ll_size »
+/usr/bin/ld : tests.c:(.text+0x7c6) : référence indéfinie vers « ll_pop_first »
+/usr/bin/ld : tests.c:(.text+0x819) : référence indéfinie vers « ll_size »
+collect2: error: ld returned 1 exit status
+make: *** [makefile:3 : tests] Erreur 1
