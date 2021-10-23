@@ -60,7 +60,14 @@ void ll_free(ll_list *list) {
  * given value
  */
 void ll_prepend(ll_list *list, int value){
-    
+    ll_node * new_element = malloc(sizeof(ll_node));
+    if(new_element == NULL) {
+        fprintf(stderr, "Allocation error in ll_append\n");
+        exit(1);
+    }
+    new_element->next = list->first;
+    new_element->value = value;
+    list->first = new_element;
 }
 
 
@@ -76,13 +83,19 @@ int ll_get_safe(const ll_list *list, unsigned int i, int *value){
 /** return the first value
  */
 int ll_first(ll_list *list){
-    return 0;
+    ll_node *it = list->first;
+    return it->value;
 }
 
 /** return the last value
  */
 int ll_last(ll_list *list){
-    return 0;
+    ll_node *it = list->first;
+    while(it->next != NULL) {
+        it = it->next;
+    }
+    //printf("%i\n", it->value);
+    return it->value;
 }
 
 /**
@@ -103,11 +116,16 @@ size_t ll_size(ll_list*list){
  * remove the last element
  */
 void ll_pop_last(ll_list*list){
-
+    /*ll_node *it = list->first;
+    for (unsigned long int i=1; i<(unsigned long int)ll_size-2; i++){
+        it=it->next;
+    }
+    it->next=NULL;*/
 }
 /**
  * remove the first element
  */
 void ll_pop_first(ll_list*list){
-
+    ll_node *it = list->first;
+    list->first=it->next;
 }

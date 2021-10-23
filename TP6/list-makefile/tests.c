@@ -112,5 +112,5 @@ int main(void)
   TEST(test_prepend);
   TEST(test_first_last);
   TEST(test_pop_first);
-  TEST(test_first_last);
+  TEST(test_pop_last);
 }

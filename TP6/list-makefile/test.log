@@ -4,24 +4,76 @@
 ####
 cc    -c -o tests.o tests.c
 cc    -c -o linked-list.o linked-list.c
-gcc -o tests.o -c tests.c -Wall -Wextra -Werror
-gcc -o tests tests.o linked-list.o
-/usr/bin/ld : tests.o : dans la fonction « test_size » :
-tests.c:(.text+0x2d2) : référence indéfinie vers « ll_size »
-/usr/bin/ld : tests.o : dans la fonction « test_prepend » :
-tests.c:(.text+0x3a7) : référence indéfinie vers « ll_prepend »
-/usr/bin/ld : tests.c:(.text+0x440) : référence indéfinie vers « ll_size »
-/usr/bin/ld : tests.o : dans la fonction « test_first_last » :
-tests.c:(.text+0x4ca) : référence indéfinie vers « ll_first »
-/usr/bin/ld : tests.c:(.text+0x50b) : référence indéfinie vers « ll_last »
-/usr/bin/ld : tests.o : dans la fonction « test_pop_last » :
-tests.c:(.text+0x594) : référence indéfinie vers « ll_size »
-/usr/bin/ld : tests.c:(.text+0x61e) : référence indéfinie vers « ll_pop_last »
-/usr/bin/ld : tests.c:(.text+0x671) : référence indéfinie vers « ll_last »
-/usr/bin/ld : tests.c:(.text+0x6b3) : référence indéfinie vers « ll_size »
-/usr/bin/ld : tests.o : dans la fonction « test_pop_first » :
-tests.c:(.text+0x73d) : référence indéfinie vers « ll_size »
-/usr/bin/ld : tests.c:(.text+0x7c6) : référence indéfinie vers « ll_pop_first »
-/usr/bin/ld : tests.c:(.text+0x819) : référence indéfinie vers « ll_size »
-collect2: error: ld returned 1 exit status
-make: *** [makefile:3 : tests] Erreur 1
+gcc -o tests.o -c tests.c -Wall -Wextra -Werror -g
+gcc -o tests tests.o linked-list.o -Wall -Wextra -Werror -g
+
+####
+#### Execution avec Valgrind
+####
+test_create
+Done
+test_append
+Done
+test_append2
+Done
+test_malloc_error
+Done
+test_size
+Done
+test_prepend
+Done
+test_first_last
+Done
+test_pop_first
+Done
+test_pop_last
+Error 
+assertion failed: ll_last(list) == 18 [ FAILED ]
+==6270== 8 bytes in 1 blocks are definitely lost in loss record 2 of 18
+==6270==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6270==    by 0x109C10: ll_create (in /home/felixlusseau/Documents/Cours/Seafile/Ma bibliothèque/Algorithmique et programmation C/MesExercicesCSurGit/TP6/list-makefile/tests)
+==6270==    by 0x1091D9: test_create (tests.c:8)
+==6270==    by 0x109A4F: main (tests.c:107)
+==6270== 
+==6270== 16 bytes in 1 blocks are definitely lost in loss record 6 of 18
+==6270==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6270==    by 0x109C70: ll_append (in /home/felixlusseau/Documents/Cours/Seafile/Ma bibliothèque/Algorithmique et programmation C/MesExercicesCSurGit/TP6/list-makefile/tests)
+==6270==    by 0x1098FD: test_pop_first (tests.c:94)
+==6270==    by 0x109B91: main (tests.c:114)
+==6270== 
+==6270== 40 (8 direct, 32 indirect) bytes in 1 blocks are definitely lost in loss record 7 of 18
+==6270==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6270==    by 0x109C10: ll_create (in /home/felixlusseau/Documents/Cours/Seafile/Ma bibliothèque/Algorithmique et programmation C/MesExercicesCSurGit/TP6/list-makefile/tests)
+==6270==    by 0x109234: test_append (tests.c:13)
+==6270==    by 0x109A7D: main (tests.c:108)
+==6270== 
+==6270== 312 (8 direct, 304 indirect) bytes in 1 blocks are definitely lost in loss record 9 of 18
+==6270==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6270==    by 0x109C10: ll_create (in /home/felixlusseau/Documents/Cours/Seafile/Ma bibliothèque/Algorithmique et programmation C/MesExercicesCSurGit/TP6/list-makefile/tests)
+==6270==    by 0x1098DF: test_pop_first (tests.c:92)
+==6270==    by 0x109B91: main (tests.c:114)
+==6270== 
+==6270== 328 (8 direct, 320 indirect) bytes in 1 blocks are definitely lost in loss record 15 of 18
+==6270==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6270==    by 0x109C10: ll_create (in /home/felixlusseau/Documents/Cours/Seafile/Ma bibliothèque/Algorithmique et programmation C/MesExercicesCSurGit/TP6/list-makefile/tests)
+==6270==    by 0x10933F: test_append2 (tests.c:23)
+==6270==    by 0x109AAB: main (tests.c:109)
+==6270== 
+==6270== 328 (8 direct, 320 indirect) bytes in 1 blocks are definitely lost in loss record 16 of 18
+==6270==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6270==    by 0x109C10: ll_create (in /home/felixlusseau/Documents/Cours/Seafile/Ma bibliothèque/Algorithmique et programmation C/MesExercicesCSurGit/TP6/list-makefile/tests)
+==6270==    by 0x109474: test_size (tests.c:41)
+==6270==    by 0x109B07: main (tests.c:111)
+==6270== 
+==6270== 328 (8 direct, 320 indirect) bytes in 1 blocks are definitely lost in loss record 17 of 18
+==6270==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6270==    by 0x109C10: ll_create (in /home/felixlusseau/Documents/Cours/Seafile/Ma bibliothèque/Algorithmique et programmation C/MesExercicesCSurGit/TP6/list-makefile/tests)
+==6270==    by 0x10966C: test_first_last (tests.c:65)
+==6270==    by 0x109B63: main (tests.c:113)
+==6270== 
+==6270== 344 (8 direct, 336 indirect) bytes in 1 blocks are definitely lost in loss record 18 of 18
+==6270==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6270==    by 0x109C10: ll_create (in /home/felixlusseau/Documents/Cours/Seafile/Ma bibliothèque/Algorithmique et programmation C/MesExercicesCSurGit/TP6/list-makefile/tests)
+==6270==    by 0x1094FE: test_prepend (tests.c:50)
+==6270==    by 0x109B35: main (tests.c:112)
+==6270== 
