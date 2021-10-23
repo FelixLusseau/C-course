@@ -52,7 +52,7 @@ int ll_get(const ll_list *list, unsigned int value_idx) {
 }
 
 void ll_free(ll_list *list) {
-    return;
+    free(list);
 }
 
 /** 
@@ -116,11 +116,11 @@ size_t ll_size(ll_list*list){
  * remove the last element
  */
 void ll_pop_last(ll_list*list){
-    /*ll_node *it = list->first;
-    for (unsigned long int i=1; i<(unsigned long int)ll_size-2; i++){
+    ll_node *it = list->first;
+    while(it->next->next != NULL){
         it=it->next;
     }
-    it->next=NULL;*/
+    it->next=NULL;
 }
 /**
  * remove the first element

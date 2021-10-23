@@ -7,4 +7,4 @@ linked-list: linked-list.c linked-list.h
 
 clean:
 	rm -rf *.o
-	rm -rf linked-list
+	rm -rf tests
