@@ -79,6 +79,7 @@ void ll_free(ll_list *list) {
  * prepend an element to the list with the 
  * given value
  */
+ 
 void ll_prepend(ll_list *list, int value){
     ll_node * new_element = malloc(sizeof(ll_node));
     if(new_element == NULL) {
@@ -96,6 +97,7 @@ void ll_prepend(ll_list *list, int value){
  * return 1 if the function succeed
  * 0 if there is an error
  */
+
 int ll_get_safe(const ll_list *list, unsigned int i, int *value){
     return 1;
 }
@@ -103,6 +105,7 @@ int ll_get_safe(const ll_list *list, unsigned int i, int *value){
 
 /** return the first value
  */
+
 int ll_first(ll_list *list){
     ll_node *it = list->first;
     return it->value;
@@ -110,6 +113,7 @@ int ll_first(ll_list *list){
 
 /** return the last value
  */
+
 int ll_last(ll_list *list){
     ll_node *it = list->first;
     while(it->next != NULL) {
@@ -122,6 +126,7 @@ int ll_last(ll_list *list){
 /**
  * return  the size of the list
  */
+
 size_t ll_size(ll_list*list){
     /*size_t count = 1;
     ll_node *it = list->first;
@@ -137,6 +142,7 @@ size_t ll_size(ll_list*list){
 /**
  * remove the last element
  */
+
 void ll_pop_last(ll_list*list){
     ll_node *it = list->first;
     while(it->next->next != NULL){
@@ -151,6 +157,7 @@ void ll_pop_last(ll_list*list){
 /**
  * remove the first element
  */
+
 void ll_pop_first(ll_list*list){
     ll_node *it = list->first;
     list->first=it->next;
