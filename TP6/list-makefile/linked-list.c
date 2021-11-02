@@ -9,6 +9,7 @@ typedef struct ll_node {
 
 struct ll_list {
     struct ll_node *first;
+    size_t size;
 };
 
 
@@ -17,6 +18,7 @@ ll_list * ll_create(void) {
     if (list==NULL)
         return NULL;
     list->first = NULL;
+    list->size=0;
     return list;
 }
 
@@ -28,6 +30,7 @@ void ll_append(ll_list *list, int value) {
     }
     new_element->next = NULL;
     new_element->value = value;
+    list->size+=1;
 
     if(list->first == NULL) {
         list->first = new_element;
@@ -85,6 +88,7 @@ void ll_prepend(ll_list *list, int value){
     new_element->next = list->first;
     new_element->value = value;
     list->first = new_element;
+    list->size+=1;
 }
 
 
@@ -119,14 +123,15 @@ int ll_last(ll_list *list){
  * return  the size of the list
  */
 size_t ll_size(ll_list*list){
-    size_t count = 1;
+    /*size_t count = 1;
     ll_node *it = list->first;
     while(it->next != NULL) {
         it = it->next;
         count+=1;
     }
     //printf("%li", count);
-    return count;
+    return count;*/
+    return list->size;
 }
 
 /**
@@ -139,7 +144,8 @@ void ll_pop_last(ll_list*list){
     }
     ll_node *noeud = it->next;
     it->next=NULL;
-    free(noeud);   
+    list->size-=1;  
+    free(noeud);
 }
 
 /**
@@ -148,5 +154,6 @@ void ll_pop_last(ll_list*list){
 void ll_pop_first(ll_list*list){
     ll_node *it = list->first;
     list->first=it->next;
-    free(it);
+    list->size-=1;
+    free(it);     
 }
