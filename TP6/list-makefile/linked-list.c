@@ -52,7 +52,24 @@ int ll_get(const ll_list *list, unsigned int value_idx) {
 }
 
 void ll_free(ll_list *list) {
+    if (list == NULL){
+        return ;
+    }
+    else if (list->first == NULL){
+        free(list);
+        return ;
+    }
+    else {
+    ll_node *it = list->first;
+    ll_node *it2;
+    while (it->next != NULL){
+        it2 = it;
+        it = it->next;
+        free(it2);
+    }
+    free(it);
     free(list);
+    }  
 }
 
 /** 
@@ -76,7 +93,7 @@ void ll_prepend(ll_list *list, int value){
  * 0 if there is an error
  */
 int ll_get_safe(const ll_list *list, unsigned int i, int *value){
-    return 0;
+    return 1;
 }
 
 
@@ -120,12 +137,16 @@ void ll_pop_last(ll_list*list){
     while(it->next->next != NULL){
         it=it->next;
     }
+    ll_node *noeud = it->next;
     it->next=NULL;
+    free(noeud);   
 }
+
 /**
  * remove the first element
  */
 void ll_pop_first(ll_list*list){
     ll_node *it = list->first;
     list->first=it->next;
+    free(it);
 }

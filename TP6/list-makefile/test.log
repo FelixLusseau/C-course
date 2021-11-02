@@ -4,9 +4,27 @@
 ####
 cc    -c -o tests.o tests.c
 cc    -c -o linked-list.o linked-list.c
-linked-list.c: In function ‘ll_free’:
-linked-list.c:55:10: error: ‘new_element’ undeclared (first use in this function)
-   55 |     free(new_element);
-      |          ^~~~~~~~~~~
-linked-list.c:55:10: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [<commande interne> : linked-list.o] Erreur 1
+gcc -o tests.o -c tests.c -Wall -Wextra -Werror -g
+gcc -o tests tests.o linked-list.o -Wall -Wextra -Werror -g
+
+####
+#### Execution avec Valgrind
+####
+test_create
+Done
+test_append
+Done
+test_append2
+Done
+test_malloc_error
+Done
+test_size
+Done
+test_prepend
+Done
+test_first_last
+Done
+test_pop_first
+Done
+test_pop_last
+Done

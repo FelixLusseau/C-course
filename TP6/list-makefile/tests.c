@@ -45,6 +45,19 @@ void test_size(void) {
   tps_assert(ll_size(list) == 20);
   ll_free(list);
 }
+
+void test_size_big(void) {
+
+  ll_list *list = ll_create();
+  for(int i = 0; i < 100000; i++)
+    ll_prepend(list, i);
+
+  for(int i = 0; i < 100000; i++)
+  {
+    tps_assert(ll_size(list) == 100000);
+  }
+  ll_free(list);
+}
 void test_prepend(void) {
 
   ll_list *list = ll_create();
@@ -113,4 +126,5 @@ int main(void)
   TEST(test_first_last);
   TEST(test_pop_first);
   TEST(test_pop_last);
+  TEST(test_size_big);
 }
