@@ -1,0 +1,36 @@
+
+####
+#### Compilation
+####
+cc    -c -o tests.o tests.c
+cc    -c -o linked-list.o linked-list.c
+gcc -o tests.o -c tests.c -Wall -Wextra -Werror -g
+gcc -o tests tests.o linked-list.o -Wall -Wextra -Werror -g
+
+####
+#### Execution avec Valgrind
+####
+test_create
+Done
+test_append
+Done
+test_append2
+Done
+test_malloc_error
+Done
+test_size
+Done
+test_prepend
+Done
+test_first_last
+Done
+test_pop_first
+Done
+test_pop_last
+Done
+test_size_big
+Done
+test_insert
+Done
+test_remove
+Done
