@@ -79,7 +79,7 @@ void ll_free(ll_list *list) {
  * prepend an element to the list with the 
  * given value
  */
- 
+
 void ll_prepend(ll_list *list, int value){
     ll_node * new_element = malloc(sizeof(ll_node));
     if(new_element == NULL) {
