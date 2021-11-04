@@ -24,14 +24,9 @@
 #### Execution
 #### valgrind -q --leak-check=full --error-exitcode=43 ./pyramide
 
-2713388360
+31446839753
 
 ==> exitcode: 0
 
 #### Comparaison
 #### diff
-1,2c1
-< 
-< 2713388360
----
-> 31446839753
