@@ -1,0 +1,18 @@
+
+####
+#### Compilation
+####
+cc -g -Wall -Wextra -Werror   -c -o tests.o tests.c
+gcc -o append.o -c append.c -Wall -Wextra -Werror -g
+gcc -o tests.o -c tests.c -Wall -Wextra -Werror -g
+gcc -o tests tests.o append.o -Wall -Wextra -Werror -g
+
+####
+#### Execution
+####
+test_example_1
+Done
+test_example_2
+Done
+test_error_malloc
+Done
