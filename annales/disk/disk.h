@@ -12,7 +12,7 @@ char * disk(int d){
             if (((d/2.0-0.5) - x)*((d/2.0-0.5) - x) + ((d/2.0-0.5) - y)*((d/2.0-0.5) - y) < d*d/4.0)
                 strcat(chaine, "#");
             else 
-            strcat(chaine, " ");
+                strcat(chaine, " ");
         }
         strcat(chaine, "\n");
     }
@@ -46,9 +46,10 @@ char * disk_text(char * texte){
                 k++;
             }*/
             else 
-            strcat(chaine, " ");
+                strcat(chaine, " ");
         }
         strcat(chaine, "\n");
     }
+    //printf("%s", chaine);
     return chaine;
 }
