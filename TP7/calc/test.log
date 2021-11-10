@@ -1,0 +1,71 @@
+
+####
+#### Compilation calc
+####
+cc -Wall -Wextra -Werror -lm -g   -c -o calc.o calc.c
+gcc -o parser.o -c parser.c -Wall -Wextra -Werror -lm -g
+gcc -o calc-io.o -c calc-io.c -Wall -Wextra -Werror -lm -g
+gcc -o calc.o -c calc.c -Wall -Wextra -Werror -lm -g
+gcc -o calc calc.o parser.o calc-io.o -Wall -Wextra -Werror -lm -g
+
+####
+#### Compilation tests
+####
+gcc -o tests.o -c tests.c -Wall -Wextra -Werror -lm -g
+gcc -o tests tests.o parser.o calc-io.o -Wall -Wextra -Werror -lm -g
+
+####
+#### Test issue de tests.c
+####
+10.000000 + 50.100000 = 60.100000
+
+####
+#### Test entrée/sortie : test-0
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./calc
+Entrez un calcul dans le format : X operation Y
+1.000000 + 1.000000 = 2.000000
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff end
+/tmp/tps-c.out.8955
+LINEC: 1 -
+1.000000 + 1.000000 = 2.000000
+
+####
+#### Test entrée/sortie : test-1
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./calc
+Entrez un calcul dans le format : X operation Y
+5132.000000 / 41.153000 = 124.705368
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff end
+/tmp/tps-c.out.8955
+LINEC: 1 -
+5132.000000 / 41.153000 = 124.705368
+
+####
+#### Test entrée/sortie : test-2
+####
+
+#### Execution
+#### valgrind -q --leak-check=full --error-exitcode=43 ./calc
+Entrez un calcul dans le format : X operation Y
+2.000000 ^ 20.000000 = 1048576.000000
+
+==> exitcode: 0
+
+#### Comparaison
+#### diff end
+/tmp/tps-c.out.8955
+LINEC: 1 -
+2.000000 ^ 20.000000 = 1048576.000000
