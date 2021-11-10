@@ -2,17 +2,17 @@
 ####
 #### Compilation calc
 ####
-cc -Wall -Wextra -Werror -lm -g   -c -o calc.o calc.c
-gcc -o parser.o -c parser.c -Wall -Wextra -Werror -lm -g
-gcc -o calc-io.o -c calc-io.c -Wall -Wextra -Werror -lm -g
-gcc -o calc.o -c calc.c -Wall -Wextra -Werror -lm -g
-gcc -o calc calc.o parser.o calc-io.o -Wall -Wextra -Werror -lm -g
+cc -Wall -Wextra -Werror   -c -o calc.o calc.c
+gcc -o parser.o -c parser.c -Wall -Wextra -Werror
+gcc -o calc-io.o -c calc-io.c -Wall -Wextra -Werror
+gcc -o calc.o -c calc.c -Wall -Wextra -Werror
+gcc -o calc calc.o parser.o calc-io.o -Wall -Wextra -Werror -lm
 
 ####
 #### Compilation tests
 ####
-gcc -o tests.o -c tests.c -Wall -Wextra -Werror -lm -g
-gcc -o tests tests.o parser.o calc-io.o -Wall -Wextra -Werror -lm -g
+gcc -o tests.o -c tests.c -Wall -Wextra -Werror
+gcc -o tests tests.o parser.o calc-io.o -Wall -Wextra -Werror -lm
 
 ####
 #### Test issue de tests.c
@@ -32,7 +32,7 @@ Entrez un calcul dans le format : X operation Y
 
 #### Comparaison
 #### diff end
-/tmp/tps-c.out.8955
+/tmp/tps-c.out.5104
 LINEC: 1 -
 1.000000 + 1.000000 = 2.000000
 
@@ -49,7 +49,7 @@ Entrez un calcul dans le format : X operation Y
 
 #### Comparaison
 #### diff end
-/tmp/tps-c.out.8955
+/tmp/tps-c.out.5104
 LINEC: 1 -
 5132.000000 / 41.153000 = 124.705368
 
@@ -66,6 +66,6 @@ Entrez un calcul dans le format : X operation Y
 
 #### Comparaison
 #### diff end
-/tmp/tps-c.out.8955
+/tmp/tps-c.out.5104
 LINEC: 1 -
 2.000000 ^ 20.000000 = 1048576.000000
