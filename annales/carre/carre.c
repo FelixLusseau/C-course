@@ -20,14 +20,14 @@ int main(){
     printf("%Lf\n\n", k);*/
     else if (kk==k)
     {
-        long long unsigned int nbSuivant = 0;
+        /*long long unsigned int nbSuivant = 0;
         long long unsigned int i=0;
         while (nbSuivant<=N)
         {
             i++;
             nbSuivant=i*i+1;
-        }
-    printf("%llu\n", nbSuivant);
+        }*/
+    printf("%llu\n", (long long unsigned int)(k*k+1));
     }
     else
         printf("PARFAIT\n");
