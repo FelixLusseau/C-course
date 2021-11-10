@@ -46,15 +46,16 @@ char * disk_text(char * texte){
         int flag=0;
         for (int x=0; x<d; x++){
             if (((d/2.0-0.5) - x)*((d/2.0-0.5) - x) + ((d/2.0-0.5) - y)*((d/2.0-0.5) - y) < d*d/4.0){
-                char chainetmp[0];
-                printf("textek %c\n", texte[k]);
+                char chainetmp[2]={' '};
+                //printf("textek %c\n", texte[k]);
                 chainetmp[0]=texte[k];
-                printf("chainetmp %s\n", chainetmp);
+                //printf("chainetmp %s\n", chainetmp);
                 strcat(chaine, chainetmp);
                 k++;
                 flag=1;
-                printf("chaine %s\n\n", chaine);
-                printf("chainetmp2 %s\n", chainetmp);}
+                //printf("chaine %s\n\n", chaine);
+                //printf("chainetmp2 %s\n", chainetmp);
+                }
             /*else if (((d/2.0-0.5) - x)*((d/2.0-0.5) - x) + ((d/2.0-0.5) - y)*((d/2.0-0.5) - y) < d*d/4.0 && k>(int)strlen(texte)){
                 strcat(chaine, ".");
                 k++;
