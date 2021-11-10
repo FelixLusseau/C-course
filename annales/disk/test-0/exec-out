@@ -1,9 +1,5 @@
-==18226== Conditional jump or move depends on uninitialised value(s)
-==18226==    at 0x1094A6: disk (in /home/felixlusseau/Documents/Cours/Seafile/Ma bibliothèque/Algorithmique et programmation C/MesExercicesCSurGit/annales/disk/tests)
-==18226==    by 0x1098B0: main (in /home/felixlusseau/Documents/Cours/Seafile/Ma bibliothèque/Algorithmique et programmation C/MesExercicesCSurGit/annales/disk/tests)
-==18226== 
- ## 
+ ##
 ####
 ####
- ## 
+ ##
 
