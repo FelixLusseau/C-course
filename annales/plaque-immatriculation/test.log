@@ -1,0 +1,23 @@
+
+####
+#### Clean
+####
+
+####
+#### Compilation du programme de génération
+####
+gcc -o generer-plaque-main.o -c generer-plaque-main.c
+gcc -o generer-plaque.o -c generer-plaque.c
+gcc -o generer-plaque generer-plaque.o generer-plaque-main.o
+
+####
+#### Compilation
+####
+cc    -c -o custom-plaque.o custom-plaque.c
+gcc -o custom-plaque.o -c custom-plaque.c
+gcc -o custom-plaque custom-plaque.o generer-plaque.o -lm
+
+####
+#### Test 1
+####
+
