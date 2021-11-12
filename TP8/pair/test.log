@@ -1,0 +1,36 @@
+
+####
+#### Compilation
+####
+cc -Wall -Wextra -Werror   -c -o tests.o tests.c
+gcc -o pair.o -c pair.c -Wall -Wextra -Werror
+gcc -o tests.o -c tests.c -Wall -Wextra -Werror
+gcc -o tests tests.o pair.o -Wall -Wextra -Werror
+
+####
+#### Execution
+####
+test_create
+Done
+test_get_second
+Done
+test_swap
+Done
+test_error_malloc
+Done
+test_hidden_struct
+Done
+
+####
+#### Execution avec Valgrind
+####
+test_create
+Done
+test_get_second
+Done
+test_swap
+Done
+test_error_malloc
+Done
+test_hidden_struct
+Done
