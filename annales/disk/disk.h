@@ -25,7 +25,9 @@ char * disk(int d){
 char * disk_text(char * texte){
     int d=0;
     long unsigned int diese = 0;
+    int nbcarac = 0;
     while (diese<=strlen(texte)){
+        nbcarac=(int)diese;
         diese = 0;
         for (int y=0; y<d; y++){
             for (int x=0; x<d; x++){
@@ -46,7 +48,7 @@ char * disk_text(char * texte){
     textec[0] = '\0';
     strcpy(textec, texte); */
     //texte[strlen(texte) - 1] = '\0';
-    for (int j=1; j<=d+1; j++){
+    for (int j=1; j<=nbcarac; j++){
         strcat(texte, point);
     //    printf("%s\n", texte);
     }
@@ -63,6 +65,7 @@ char * disk_text(char * texte){
                 //printf("textek %c\n", texte[k]);
                 chainetmp[0]=texte[k];
                 //printf("chainetmp %s\n", chainetmp);
+                //printf("%c\n", texte[k]);
                 strcat(chaine, chainetmp);
                 k++;
                 flag=1;
