@@ -23,8 +23,21 @@ char * disk(int d){
 }
 
 char * disk_text(char * texte){
-    int d = strlen(texte);
-    d=floor(sqrt(d)+2);
+    int d=0;
+    long unsigned int diese = 0;
+    while (diese<=strlen(texte)){
+        diese = 0;
+        for (int y=0; y<d; y++){
+            for (int x=0; x<d; x++){
+                if (((d/2.0-0.5) - x)*((d/2.0-0.5) - x) + ((d/2.0-0.5) - y)*((d/2.0-0.5) - y) < d*d/4.0){
+                    diese++;
+                }
+            }
+        }
+        d++;
+    }
+    d-=1;
+    //d=floor(sqrt(d)+2);
     char point[2]={'.'};
     //printf("\n%c\n", point[0]);
     /* char * textec=malloc(10000*sizeof(char));
@@ -37,7 +50,7 @@ char * disk_text(char * texte){
         strcat(texte, point);
     //    printf("%s\n", texte);
     }
-    char * chaine = malloc(1000*sizeof(char));
+    char * chaine = malloc(10000*sizeof(char));
     if (chaine==NULL)
         return NULL;
     chaine[0] = '\0';

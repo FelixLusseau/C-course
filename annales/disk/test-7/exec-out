@@ -1,0 +1,40 @@
+==11026== Conditional jump or move depends on uninitialised value(s)
+==11026==    at 0x483EC41: strcat (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11026==    by 0x1097BB: disk_text (in /home/felixlusseau/Documents/Cours/Seafile/Ma bibliothèque/Algorithmique et programmation C/MesExercicesCSurGit/annales/disk/tests)
+==11026==    by 0x109919: main (in /home/felixlusseau/Documents/Cours/Seafile/Ma bibliothèque/Algorithmique et programmation C/MesExercicesCSurGit/annales/disk/tests)
+==11026== 
+             Sed ut p
+          erspiciatis un
+        de omnis iste natu
+       s error sit voluptat
+     em accusantium doloremqu
+    e laudantium, totam rem ap
+    eriam, eaque ipsa quae ab 
+   illo inventore veritatis et 
+  quasi architecto beatae vitae 
+  dicta sunt explicabo. Nemo eni
+ m ipsam voluptatem quia voluptas
+  sit aspernatur aut odit aut fug
+ it, sed quia consequuntur magni 
+dolores eos qui ratione voluptatem
+ sequi nesciunt. Neque porro quisq
+uam est, qui dolorem ipsum quia do
+lor sit amet, consectetur, adipisc
+i velit, sed quia non numquam eius
+ modi tempora incidunt ut labore e
+t dolore magnam aliquam quaerat vo
+luptatem. Ut enim ad minima veniam
+ , quis nostrum exercitationem ul
+ lam corporis suscipit laboriosam
+ , nisi ut aliquid ex ea commodi 
+  consequatur? Quis autem vel eu
+  m iure reprehenderit qui in ea
+    voluptate velit esse quam n
+    ihil molestiae consequatur
+    , vel illum qui dolorem eu
+     m fugiat quo voluptas nu
+       lla pariatur?.......
+        ..................
+          ..........
+             
+
