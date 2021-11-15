@@ -9,7 +9,6 @@
 
 #### Execution
 #### valgrind -q --leak-check=full --error-exitcode=43 ./reduc
-
 1
 
 ==> exitcode: 0
@@ -23,7 +22,6 @@
 
 #### Execution
 #### valgrind -q --leak-check=full --error-exitcode=43 ./reduc
-
 -1
 
 ==> exitcode: 0
@@ -37,7 +35,6 @@
 
 #### Execution
 #### valgrind -q --leak-check=full --error-exitcode=43 ./reduc
-
 -1
 
 ==> exitcode: 0
@@ -51,7 +48,6 @@
 
 #### Execution
 #### valgrind -q --leak-check=full --error-exitcode=43 ./reduc
-
 5994
 
 ==> exitcode: 0
