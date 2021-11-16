@@ -31,6 +31,7 @@ uint64_t ci_encode(uint32_t value){
 int ci_check(uint64_t value){
     uint32_t value32=(value & 0xFFFF);
     value=value>>32;
+    printf("%u %u\n", value32, (uint32_t)value);
     if (value32==(uint32_t)value){
         return 0;
     }
