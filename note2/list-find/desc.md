@@ -1,0 +1,12 @@
+## list-find
+
+On considère une librairie existante permettant de gérer une liste similaire à celle vue en cours.
+Le fichier `list.h` est fourni et le fichier `list.c.sujet` doit être renommé en `list.c` et doit être complété. La liste permet de stocker des élément de type `void*` pointant vers des éléments de type inconnu.
+
+Il y a plusieurs fonctions à compléter. Vous devez les implémenter dans l'ordre car si un test échoue, les suivants ne sont pas exécutés. Pensez à regarder le fichier `tests.c` pour comprendre comment ces fonctions sont utilisées (et voir la note correspondante). Vous devez aussi créer un Makefile pour compiler le programme `tests` (et faire une règle `clean`).
+
+* `void *ll_find(ll_list *list, int (*match)(void*))`: cette fonction retourne le premier élément `el` de la liste tel que `match(el)` est vrai (est différent de 0). Si aucun élément n'est trouvé, la fonction retourne `NULL`.
+* `int ll_match_positive_int(void *el)`: cette fonction suppose que le pointeur donné en argument est en fait un `int*`. Elle retourne 1 si l'entier pointé par `el` est strictement positif, retourne 0 sinon. Cette fonction peut être utilisée par la fonction `ll_find`, pour trouver le premier élément positif dans une liste d'entiers.
+* `void *ll_find_data(ll_list *list, int (*match)(void*,void*), void *data)`: similaire à `ll_find` mais cette fois l'argument data est envoyé en deuxième argument de la fonction match à chaque appel de celle-ci. 
+* `int ll_match_int_equals(void *el, void *data)`: cette fonction suppose que les pointeurs donnés en arguments sont en fait des `int*`. Elle retourne 1 si l'entier pointé par `el` est égale à l'entier pointé par `data`, retourne 0 sinon. Cette fonction peut être utilisée par la fonction `ll_find_data`, pour trouver le premier élément égale à un entier donné (donné en troisième argument de la fonction `ll_find_data`).
+* `int ll_match_student(void *el, void *data)`: cette fonction suppose que `el` pointe vers une variable de type `student_t` et `data` pointe vers un `unsigned long long`. Elle retourne 1 si l'étudiant pointé par `el` a un identifiant `id` égale à l'entier pointé par `data`, retourne 0 sinon. Cette fonction peut être utilisée par la fonction `ll_find_data`, pour trouver le premier étudiant avec un identifiant donné (donné en troisième argument de la fonction `ll_find_data`).

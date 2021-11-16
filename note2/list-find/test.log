@@ -1,0 +1,27 @@
+
+####
+#### Compilation
+####
+gcc -o tests.o -c tests.c -Wall -Wextra -Werror
+gcc -o list.o -c list.c -Wall -Wextra -Werror
+gcc -o tests tests.o list.o -Wall -Wextra -Werror
+
+####
+#### Execution avec Valgrind
+####
+test_create
+Done
+test_append
+Done
+test_pop_first
+Done
+test_find
+Done
+test_find_positive
+Done
+test_find_data
+Done
+test_find_data_equals
+Done
+test_find_data_students
+Done
