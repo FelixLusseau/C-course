@@ -13,6 +13,10 @@ test_encode_decode
 Done
 test_encode
 Done
+Vrai
+Vrai
+Vrai
+Vrai
 test_check
-Error (line: 35) 
-assertion failed: ci_check(0x1100000011) [ FAILED ]
+Error (line: 37) 
+assertion failed: !ci_check(0x1200000011) [ FAILED ]
