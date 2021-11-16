@@ -1,0 +1,18 @@
+
+####
+#### Compilation
+####
+gcc -o tests.o -c tests.c -Wall -Wextra -Werror -g
+gcc -o checked-int.o -c checked-int.c -Wall -Wextra -Werror -g
+gcc -o tests tests.o checked-int.o -Wall -Wextra -Werror -g
+
+####
+#### Execution avec Valgrind
+####
+test_encode_decode
+Done
+test_encode
+Done
+test_check
+Error (line: 35) 
+assertion failed: ci_check(0x1100000011) [ FAILED ]
