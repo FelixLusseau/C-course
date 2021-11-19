@@ -7,7 +7,11 @@ int main(int argc, char ** argv){
         return 1;
     }
     FILE * in = fopen(argv[1], "r");
+    if (in == NULL)
+        return 1;
     FILE * out = fopen(argv[2], "w");
+    if (out == NULL)
+        return 1;
     float degc;
     float degf;
     while (fscanf(in, "%f", &degc)!=EOF){

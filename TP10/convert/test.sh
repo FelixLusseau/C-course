@@ -31,11 +31,17 @@ make $TARGET >> $LOG 2>&1 || fail
 coloredEcho "OK" green
 
 annoncer "Test Erreur 1"
-$VALGRIND ./$TARGET test-0/in >> $LOG 2>&1 && fail
+$VALGRIND ./$TARGET test-0/in >> $LOG 2>&1
+if [ $? -ne 1 ]; then
+  fail
+fi
 coloredEcho "OK" green
 
 annoncer "Test Erreur 2"
-$VALGRIND ./$TARGET fichier_qui_n_existe_pas out1.txt >> $LOG 2>&1 && fail
+$VALGRIND ./$TARGET fichier_qui_n_existe_pas out1.txt >> $LOG 2>&1
+if [ $? -ne 1 ]; then
+  fail
+fi
 coloredEcho "OK" green
 
 
