@@ -1,0 +1,78 @@
+
+####
+#### Compilation
+####
+rm -f *.o latex-indent
+gcc -o latex-indent.o -c latex-indent.c -Wall -Wextra -Werror -g
+gcc -o latex-indent latex-indent.o -Wall -Wextra -Werror -g
+
+####
+#### test erreur 1
+####
+
+####
+#### test erreur 2
+####
+
+####
+#### test erreur 2 bis
+####
+
+####
+#### test erreur 3
+####
+
+####
+#### test-1
+####
+
+####
+#### test-2
+####
+
+####
+#### test-2 vers stdout
+####
+\documentclass[12pt, letterpaper, twoside]{article}
+\usepackage[utf8]{inputenc}
+
+\title{First document}
+\author{Hubert Farnsworth \thanks{funded by the Overleaf team}}
+\date{February 2014}
+
+\begin{document}
+  
+  \begin{titlepage}  \maketitle \end{titlepage}
+  
+  In this document some extra packages and parameters
+  were added. There is an encoding package
+  and pagesize and fontsize parameters.
+  
+  \begin{center}
+    \begin{center}
+      \begin{center}
+        Hello
+      \end{center}
+    \end{center}
+  \end{center}
+  
+\end{document}
+####
+#### test-3
+####
+8c8
+< \begin{document}
+---
+>   \begin{document}
+12c12
+<   \end{titlepage} 
+---
+>     \end{titlepage} 
+14,16c14,16
+<   In this document some extra packages and parameters
+<   were added. There is an encoding package
+<   and pagesize and fontsize parameters.
+---
+>           In this document some extra packages and parameters
+>    were added. There is an encoding package
+>       and pagesize and fontsize parameters.

@@ -1,0 +1,15 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+\usepackage[utf8]{inputenc}
+
+\title{First document}
+     \author{Hubert Farnsworth \thanks{funded by the Overleaf team}}
+\date{February 2014}
+
+\begin{document}
+\begin{center1} text \end{center1} \begin{center2} text \begin{center3}
+text
+\begin{center1} text \end{center1} \end{center3}
+text
+\end{center2} 
+Contenu
+\end{document}
