@@ -1,0 +1,36 @@
+
+####
+#### Compilation
+####
+gcc -o convert convert.c -Wall -Wextra -Werror -lm
+
+####
+#### Test Erreur 1
+####
+Il faut entrer ./convert FICHIER-D'ENTREE FICHIER-DE-SORTIE
+
+####
+#### Test Erreur 2
+####
+==9482== Invalid read of size 4
+==9482==    at 0x48C9C14: __vfscanf_internal (vfscanf-internal.c:345)
+==9482==    by 0x48C93BC: __isoc99_fscanf (isoc99_fscanf.c:30)
+==9482==    by 0x1092DE: main (in /home/felixlusseau/Documents/Cours/Seafile/Ma bibliothèque/Algorithmique et programmation C/MesExercicesCSurGit/TP10/convert/convert)
+==9482==  Address 0xc0 is not stack'd, malloc'd or (recently) free'd
+==9482== 
+==9482== 
+==9482== Process terminating with default action of signal 11 (SIGSEGV)
+==9482==  Access not within mapped region at address 0xC0
+==9482==    at 0x48C9C14: __vfscanf_internal (vfscanf-internal.c:345)
+==9482==    by 0x48C93BC: __isoc99_fscanf (isoc99_fscanf.c:30)
+==9482==    by 0x1092DE: main (in /home/felixlusseau/Documents/Cours/Seafile/Ma bibliothèque/Algorithmique et programmation C/MesExercicesCSurGit/TP10/convert/convert)
+==9482==  If you believe this happened as a result of a stack
+==9482==  overflow in your program's main thread (unlikely but
+==9482==  possible), you can try to increase the size of the
+==9482==  main thread stack using the --main-stacksize= flag.
+==9482==  The main thread stack size used in this run was 8388608.
+Segmentation fault (core dumped)
+
+####
+#### Test 0
+####
