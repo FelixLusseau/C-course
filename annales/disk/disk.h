@@ -39,18 +39,14 @@ char * disk_text(char * texte){
         d++;
     }
     d-=1;
-    //d=floor(sqrt(d)+2);
-    char point[2]={'.'};
-    //printf("\n%c\n", point[0]);
-    /* char * textec=malloc(10000*sizeof(char));
-    if (textec==NULL)
+    char point[3]={'.'};
+    char * textecopie = malloc(10000*sizeof(char));
+    if (textecopie==NULL)
         return NULL;
-    textec[0] = '\0';
-    strcpy(textec, texte); */
-    //texte[strlen(texte) - 1] = '\0';
+    textecopie[0]='\0';
+    strcat(textecopie, texte);
     for (int j=1; j<=nbcarac; j++){
-        strcat(texte, point);
-    //    printf("%s\n", texte);
+        strcat(textecopie, point);
     }
     char * chaine = malloc(10000*sizeof(char));
     if (chaine==NULL)
@@ -61,26 +57,18 @@ char * disk_text(char * texte){
         int flag=0;
         for (int x=0; x<d; x++){
             if (((d/2.0-0.5) - x)*((d/2.0-0.5) - x) + ((d/2.0-0.5) - y)*((d/2.0-0.5) - y) < d*d/4.0){
-                char chainetmp[2]={' '};
-                //printf("textek %c\n", texte[k]);
-                chainetmp[0]=texte[k];
-                //printf("chainetmp %s\n", chainetmp);
-                //printf("%c\n", texte[k]);
+                char chainetmp[3]={' '};
+                chainetmp[0]=textecopie[k];
                 strcat(chaine, chainetmp);
                 k++;
                 flag=1;
-                //printf("chaine %s\n\n", chaine);
-                //printf("chainetmp2 %s\n", chainetmp);
                 }
-            /*else if (((d/2.0-0.5) - x)*((d/2.0-0.5) - x) + ((d/2.0-0.5) - y)*((d/2.0-0.5) - y) < d*d/4.0 && k>(int)strlen(texte)){
-                strcat(chaine, ".");
-                k++;
-            }*/
             else if (flag!=1)
                 strcat(chaine, " ");
         }
         strcat(chaine, "\n");
     }
     //printf("%s", chaine);
+    free(textecopie);
     return chaine;
 }
