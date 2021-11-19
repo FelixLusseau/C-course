@@ -1,6 +1,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include <ctype.h>
 
 int main(int argc, char ** argv){
     if (argc<2){
@@ -25,18 +26,30 @@ int main(int argc, char ** argv){
         return 4;
     line_indent[0]='\0';
     char indentation[3]={"  "};
+    int spacesbegin = 0;
+    int k=0;
     while(fgets(line, 1000, in)!=NULL){
+        k=0;
         line_indent[0]='\0';
-        
-        if (strstr(line, "\\end")!=NULL && strstr(line, "\\begin")==NULL){
+        spacesbegin=0;
+        int j=0;
+        while (line[j]!='\n' && isspace(line[j])){
+                spacesbegin++;
+                j++;
+        }
+        if (strstr(line, "\\end")!=NULL && strstr(line, "\\begin")==NULL && line[spacesbegin]=='\\' && line[spacesbegin+1]=='e'){
             incr-=1;
+            k=1;
         }
         for (int i=0; i<incr; i++){
             strcat(line_indent, indentation);
         }
-        strcat(line_indent, line);
+        strcat(line_indent, &line[spacesbegin]);
         //printf("%s", line_indent);
         fprintf(out, "%s", line_indent);
+        if (strstr(line, "\\end")!=NULL && strstr(line, "\\begin")==NULL && k==0){
+            incr-=1;
+        }
         if (strstr(line, "\\begin")!=NULL && strstr(line, "\\end")==NULL){
             incr+=1;
         }

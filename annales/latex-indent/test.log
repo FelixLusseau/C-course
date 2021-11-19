@@ -60,19 +60,30 @@ gcc -o latex-indent latex-indent.o -Wall -Wextra -Werror -g
 ####
 #### test-3
 ####
-8c8
-< \begin{document}
+
+####
+#### test-4
+####
+
+####
+#### test-5
+####
+
+####
+#### test-6
+####
+10,13d9
+<         text
+<       \end{center3}
+<       text
+<     \end{center2}
+15,16c11,16
+<   \end{center1}
+<   Contenu
 ---
->   \begin{document}
-12c12
-<   \end{titlepage} 
----
->     \end{titlepage} 
-14,16c14,16
-<   In this document some extra packages and parameters
-<   were added. There is an encoding package
-<   and pagesize and fontsize parameters.
----
->           In this document some extra packages and parameters
->    were added. There is an encoding package
->       and pagesize and fontsize parameters.
+>   \end{center3}
+>   text
+> \end{center2}
+> text
+> \end{center1}
+> Contenu
