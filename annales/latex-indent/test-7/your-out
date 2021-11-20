@@ -6,12 +6,10 @@
 \date{February 2014}
 
 \begin{document}
-  \begin{center1} text \begin{center2} text \begin{center3}
-        text
-      \end{center3}
+  \begin{center1} text \end{center1} \begin{center2} text \begin{center3}
       text
-    \end{center2}
+      \begin{center1} text \end{center1} \end{center3}
     text
-  \end{center1}
+  \end{center2} 
   Contenu
 \end{document}

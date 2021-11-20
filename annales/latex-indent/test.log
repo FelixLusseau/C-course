@@ -3,6 +3,7 @@
 #### Compilation
 ####
 rm -f *.o latex-indent
+cc    -c -o latex-indent.o latex-indent.c
 gcc -o latex-indent.o -c latex-indent.c -Wall -Wextra -Werror -g
 gcc -o latex-indent latex-indent.o -Wall -Wextra -Werror -g
 
@@ -72,18 +73,11 @@ gcc -o latex-indent latex-indent.o -Wall -Wextra -Werror -g
 ####
 #### test-6
 ####
-10,13d9
-<         text
-<       \end{center3}
-<       text
-<     \end{center2}
-15,16c11,16
-<   \end{center1}
-<   Contenu
----
->   \end{center3}
->   text
-> \end{center2}
-> text
-> \end{center1}
-> Contenu
+
+####
+#### test-7
+####
+
+####
+#### test-8
+####
