@@ -1,0 +1,25 @@
+
+####
+#### Compilation
+####
+gcc -o ca_malloc.o -c ca_malloc.c -Wall -Wextra -Werror -g
+gcc -o tests.o -c tests.c -Wall -Wextra -Werror -g
+gcc -o tests tests.o ca_malloc.o -Wall -Wextra -Werror -g
+
+####
+#### Execution
+####
+test_ok
+Done
+test_erreur
+Done
+
+####
+#### Execution avec Valgrind
+####
+
+/!\ un canary a été modifié !!
+test_ok
+Done
+test_erreur
+Done
