@@ -6,32 +6,32 @@ int sizeg=0;
 
 void * ca_malloc(int size){
     sizeg=size;
-    int * tab = malloc(size+16*sizeof(int));
+    char * tab = malloc(size+16);
     if (tab==NULL)
         exit(42);
     for (int i=0; i<8; i++){
         tab[i]=6;
     }
-    for (int j=15+size/4; j>=8+size/4; j--){
+    for (int j=15+size; j>=8+size; j--){
         tab[j]=6;
     }
-    return tab+8;
+    return (int*)(tab+8);
 }
 
 void ca_free(int * pointeur){
-    int * pointeurbis = pointeur-8;
+    char * pointeurbis = (char*)pointeur-8;
     /* for (int k=0; k<16+sizeg; k++)
         printf("%i\n", pointeurbis[k]); */
     for (int i=0; i<8; i++){
         //fprintf(stderr, "%i\n", pointeurbis[i]);
-        if (pointeurbis[i]!=6){
+        if ((char)pointeurbis[i]!=6){
             fprintf(stderr, "/!\\ un canary a été modifié !!");
             break;
         }
     }
-    for (int j=15+sizeg/4; j>=8+sizeg/4; j--){
+    for (int j=15+sizeg; j>=8+sizeg; j--){
         //fprintf(stderr, "%i\n", pointeurbis[j]);
-        if (pointeurbis[j]!=6){
+        if ((char)pointeurbis[j]!=6){
             fprintf(stderr, "/!\\ un canary a été modifié !!");
             break;
         }
