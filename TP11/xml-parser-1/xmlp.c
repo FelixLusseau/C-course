@@ -23,6 +23,12 @@ parser_error_type_t parse(const char *filename, parser_info_t *info){
                 }
                 buffer[i]=c;
                 i++;
+                if (c==' '){
+                    while (c!='>'){
+                        c=fgetc(file);
+                    }
+                    break;
+                }
             }
             buffer[i]='\0';
             //printf("tag : %s\n", buffer);
@@ -43,7 +49,7 @@ parser_error_type_t parse(const char *filename, parser_info_t *info){
                 if (c == EOF)
                 {
                     free(buffer);
-                    return ERROR_UNEXPECTED_END_OF_TAG;
+                    return PARSER_OK;
                 }
                 //printf("carac : %c\n", (char)c);
                 buffer[i] = c;
