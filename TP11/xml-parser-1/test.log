@@ -1,0 +1,23 @@
+
+####
+#### Compilation
+####
+gcc -o xmlp.o -c xmlp.c -Wall -Wextra -Werror -g
+gcc -o tests.o -c tests.c -Wall -Wextra -Werror -g
+gcc -o tests tests.o xmlp.o -Wall -Wextra -Werror -g
+
+####
+#### N'EXISTE PAS
+####
+
+####
+#### test-0
+####
+
+####
+#### test-1
+####
+
+####
+#### test-2
+####

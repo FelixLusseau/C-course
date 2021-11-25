@@ -1,0 +1,10 @@
+<book>
+<div>
+Hello
+</div>
+<span-custom attr1="value1">
+<span>
+Hello2
+</span>
+</span-custom>
+</book>
