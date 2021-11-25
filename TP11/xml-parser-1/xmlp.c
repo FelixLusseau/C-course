@@ -16,18 +16,23 @@ parser_error_type_t parse(const char *filename, parser_info_t *info){
             int i = 0;
             while ((c=fgetc(file))!='>'){
                 //printf("carac if : %c\n", (char)c);
-                if (c==EOF){
-                    free(buffer);
-                    fprintf(stderr, "Unexpected end of tag (missing '>')");
-                    return ERROR_UNEXPECTED_END_OF_TAG;
-                }
                 buffer[i]=c;
                 i++;
                 if (c==' '){
                     while (c!='>'){
                         c=fgetc(file);
+                    if (c==EOF){
+                    free(buffer);
+                    fprintf(stderr, "Unexpected end of tag (missing '>')");
+                    return ERROR_UNEXPECTED_END_OF_TAG;
+                    }
                     }
                     break;
+                }
+                if (c==EOF){
+                    free(buffer);
+                    fprintf(stderr, "Unexpected end of tag (missing '>')");
+                    return ERROR_UNEXPECTED_END_OF_TAG;
                 }
             }
             buffer[i]='\0';
