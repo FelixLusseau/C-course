@@ -33,3 +33,7 @@ gcc -o tests tests.o xmlp.o -Wall -Wextra -Werror -g
 ####
 #### test-5
 ####
+
+####
+#### test-6
+####

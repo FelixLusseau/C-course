@@ -1,0 +1,28 @@
+OPEN TAG book
+TEXT 
+
+OPEN TAG div
+TEXT 
+Hello
+
+CLOSE TAG div
+TEXT 
+
+OPEN TAG span-custom
+TEXT 
+
+OPEN TAG span
+TEXT 
+Hello2
+HELLO3
+
+CLOSE TAG span
+TEXT 
+
+CLOSE TAG span-custom
+TEXT 
+
+CLOSE TAG book
+open: 4
+close: 4
+text: 7

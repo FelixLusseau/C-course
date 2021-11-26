@@ -79,4 +79,6 @@ test "test-4"
 
 test_err "test-5" 2
 
+test "test-6"
+
 exit 0
