@@ -1,0 +1,25 @@
+
+####
+#### Compilation
+####
+gcc -o tests.o -c tests.c -Wall -Wextra -Werror
+gcc -o str-extract.o -c str-extract.c -Wall -Wextra -Werror
+gcc -o tests tests.o str-extract.o -Wall -Wextra -Werror
+
+####
+#### Execution
+####
+abcd efgh
+ijkl mnop
+abcd
+test_1
+Done
+abcd efgh
+ij
+test_2
+Done
+test_3
+Done
+abcd e
+test_4
+Done
