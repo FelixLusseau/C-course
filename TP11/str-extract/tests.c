@@ -46,7 +46,7 @@ void test_4()
   tps_assert(in != NULL);
 
   char buffer[1000];
-  strExtract(in, "fgh", buffer, 1000);
+  strExtract(in, "hgf", buffer, 1000);
   tps_assert(strcmp(buffer, "abcd e") == 0);
   tps_assert(fgetc(in) == 'f');
   fclose(in);
