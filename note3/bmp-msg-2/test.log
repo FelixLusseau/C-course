@@ -1,0 +1,39 @@
+
+####
+#### Compilation
+####
+mkdir -p obj
+cc -o obj/encoder.o -c src/encoder.c -Wall -Wextra -Werror -g -I./include
+mkdir -p obj
+cc -o obj/bmp-msg.o -c src/bmp-msg.c -Wall -Wextra -Werror -g -I./include
+mkdir -p obj
+cc -o obj/args-parser.o -c src/args-parser.c -Wall -Wextra -Werror -g -I./include
+mkdir -p obj
+cc -o obj/io-utils.o -c src/io-utils.c -Wall -Wextra -Werror -g -I./include
+mkdir -p bin
+cc -o bin/bmp-msg obj/encoder.o obj/bmp-msg.o obj/args-parser.o obj/io-utils.o -Wall -Wextra -Werror -g -lm -ltps -lSDL2 -lSDL2_ttf
+Linking complete!
+
+####
+#### Execution erreur
+####
+Error while opening the input file 'NEXISTEPAS': No such file or directoryError while opening files
+
+####
+#### Execution erreur 2
+####
+Error while opening the output file '/NEXSTEPAS/OUT.TXT': No such file or directoryError while opening files
+
+####
+#### Execution erreur 3
+####
+encode action requires an input and output file
+
+####
+#### Execution encode
+####
+
+####
+#### Execution decode
+####
+===DIFF===
