@@ -30,6 +30,12 @@ Error while opening the output file '/NEXSTEPAS/OUT.TXT': No such file or direct
 encode action requires an input and output file
 
 ####
+#### Execution erreur 4 (magic bytes)
+####
+error while decoding 4
+This image doesn't contain an encoded message or it is erroneous
+
+####
 #### Execution encode
 ####
 
@@ -37,3 +43,9 @@ encode action requires an input and output file
 #### Execution decode
 ####
 ===DIFF===
+
+####
+#### Execution encode cat-2 in cat
+####
+===DIFF===
+Les fichiers binaires tests/out.bmp et tests/cat_in_cat_f4.bmp sont différents

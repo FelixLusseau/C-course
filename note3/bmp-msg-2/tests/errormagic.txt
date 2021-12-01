@@ -1,0 +1,2 @@
+error while decoding 4
+This image doesn't contain an encoded message or it is erroneous

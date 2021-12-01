@@ -19,6 +19,7 @@ typedef struct options_t {
     char *outputFilename;
     char *messageToEncode;
     uint64_t messageLength;
+    uint32_t compressionRate;
 
     FILE *inputFile;
     FILE *outputFile;

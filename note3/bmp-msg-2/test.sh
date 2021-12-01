@@ -44,6 +44,9 @@ annoncer "Execution erreur 3"
 $VALGRIND ./$TARGET -e -i tests/cat.bmp >> $LOG 2>&1 && fail
 coloredEcho "OK" green
 
+annoncer "Execution erreur 4 (magic bytes)"
+$VALGRIND ./$TARGET -d -i tests/cat.bmp >> $LOG 2>&1 && fail
+coloredEcho "OK" green
 
 
 annoncer "Execution encode"
@@ -59,6 +62,16 @@ then
     fail
 fi
 coloredEcho "OK" green
+
+#annoncer "Execution encode cat-2 in cat"
+#$VALGRIND ./$TARGET -e -i tests/cat.bmp -o tests/out.bmp -f 4 <  tests/cat-2.bmp || fail
+#echo "===DIFF===" >> $LOG
+#diff tests/out.bmp tests/cat_in_cat_f4.bmp >> $LOG 2>&1
+#if [ $? -ne 0 ]
+#then
+#    fail
+#fi
+#coloredEcho "OK" green
 
 
 exit 0

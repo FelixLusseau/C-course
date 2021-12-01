@@ -7,7 +7,7 @@ En partant de la correction de l'exercice TP12/bmp-msg disponible sur moodle, le
     `[4 octets "magiques"][8 octets pour la taille du message à codé][le message à coder]`.
   Lors du décodage, il faudra vérifier que ces octets sont présents avant de décoder le reste du message. On pourra ainsi prévenir l'utilisateur (avec une nouvelle erreur) lorsque l'image que l'on souhaite décoder ne contient pas de message à décoder.
 
-* La fonction `getDataSize` retourne la taille en octets du tableau de pixels. Elle est obtenue en lisant l'entier à la position `0x22` (32 en décimal). Cependant, dans certaines images bmp, cette valeur est nulle (c'est le cas de `cat-2.png` et de `image.bmp`). Corrigez la fonction `getDataSize` pour que, si l'entier lu est nul, calcul la taille en octets du tableau de pixels en utilisant cette formule:
+* La fonction `getDataSize` retourne la taille en octets du tableau de pixels. Elle est obtenue en lisant l'entier à la position `0x22` (34 en décimal). Cependant, dans certaines images bmp, cette valeur est nulle (c'est le cas de `cat-2.png` et de `image.bmp`). Corrigez la fonction `getDataSize` pour que, si l'entier lu est nul, calcul la taille en octets du tableau de pixels en utilisant cette formule:
 ```
 size = (uint32_t)(((bitsPerPixel*width+31)/32)*4*height)
 ```
@@ -15,27 +15,27 @@ où `bitsPerPixel` est un `uint16_t` qui peut être lu à la position `28`et `wi
 
 * Ajoutez un argument de ligne de commande `-f` qui est suivit d'un nombre ayant la valeur, soit `1`, `2`, ou `4` (afficher une erreur sinon). Cet argument représente un facteur de compression du message caché dans l'image. La valeur 1 est la valeur par défaut (si jamais l'argument n'est pas donné). Ce facteur correspond au nombre de bits utilisé pour stocker le message dans chaque octet de l'image.
   Par défaut, le dernier bit est utiliser pour le message, mais si le facteur est 4, alors les 4 derniers bits de chaque octet de l'image doivent être utilisé pour stocker le message. Ainsi, uniquement 2 octets de l'image servent à stocker 1 octet du message (contre 8 par défaut).
-  La ligne suivante permet de stocker 4 bits du message c dans le pixel. si bi = 0, ce sont les 4 bits les plus à droite, si bi = 1, ce sont les 4 bits de gauche.
+  La ligne suivante permet de stocker 4 bits du message c dans le pixel. si bi = 0, ce sont les 4 bits les plus à droite, si bi = 4, ce sont les 4 bits de gauche.
   ```
   pixel = (pixel & 0b11110000) | ((c & (0b1111 << bi)) >> bi);
   ```
-  Lorsque le facteur vaut 2, la ligne suivante permet de stocker 2 bits du message c dans le pixel. si bi = 0, ce sont les 2 bits les plus à droite, si bi = 1, ce sont les 2 bits suivant, bi = 2 les 2 bits suivants, bi = 3, le 2 bits les plus à gauche.
+  Lorsque le facteur vaut 2, la ligne suivante permet de stocker 2 bits du message c dans le pixel. si bi = 0, ce sont les 2 bits les plus à droite, si bi = 2, ce sont les 2 bits suivant, bi = 4 les 2 bits suivants, bi = 6, le 2 bits les plus à gauche.
   ```
   pixel = (pixel & 0b11111100) | ((c & (0b11 << bi)) >> bi);
   ```
 
-  Pour décoder un message avec un facteur égale à 4, il faut exécuter cette ligne en utilsant 2 pixels consécutifs (et bi = 0, 1).
+  Pour décoder un message avec un facteur égale à 4, il faut exécuter cette ligne en utilsant 2 pixels consécutifs (et bi = 0, 4).
   ```
   byte = byte | ((pixel & 0b00001111) << bi);
   ```
 
-  Pour décoder un message avec un facteur égale à 2, il faut exécuter cette ligne en utilsant 4 pixels consécutifs (et bi = 0, 1, 2, 3).
+  Pour décoder un message avec un facteur égale à 2, il faut exécuter cette ligne en utilsant 4 pixels consécutifs (et bi = 0, 2, 4, 6).
   ```
-  byte = byte | ((pixel & 0b00001111) << bi);
+  byte = byte | ((pixel & 0b00000011) << bi);
   ```
   Comme le facteur doit être connu pour encode/décoder le message, il faut le stocker dans l'image aussi (avec un facteur 1).
 
-  Ainsi, l'image cat-2.bmp peut être encoder dans l'image cat.bmp avec un facteur 4 alors qu'elle est trop grande avec un facteur 1. L'image cat_in_cat_f4.bmp vous donne un aperçu du résultat (l'image est visiblement altérée). 
+  Ainsi, l'image cat-2.bmp peut être encodée dans l'image cat.bmp avec un facteur 4 alors qu'elle est trop grande avec un facteur 1. L'image cat_in_cat_f4.bmp vous donne un aperçu du résultat (l'image est visiblement altérée). 
   (je l'ai encodé avec la commande `bin/bmp-msg -e -i tests/cat.bmp -o tests/out.bmp -f 4 <  tests/cat-2.bmp`).
 
 * L'encodage peut être assez long (par exemple `bin/bmp-msg -e -i tests/image.bmp -o tests/out.bmp <  tests/cat-2.bmp`). Ajouter un indicateur de la progression de l'encodage, sous forme d'une barre de progression ou d'affichage d'un pourcentage, comme vous voulez.

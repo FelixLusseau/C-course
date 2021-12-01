@@ -49,6 +49,7 @@ void initOptions(options_t *options) {
     options->inputFile = NULL;
     options->outputFile = NULL;
     options->messageLength = 0;
+    options->compressionRate = 1;
 }
 
 void checkOptionsValidity(options_t *options) {
@@ -80,6 +81,7 @@ void printUsage(void){
     "\t-e            indiquer que le message doit être encodé\n"
     "\t-d            indiquer que le message doit être décodé\n"
     "\t-m MESSAGE    indiquer le message\n"
+    "\t-f 1-2-4      indiquer le facteur de compression parmi 1, 2 ou 4\n"
     "\t-h            afficher cette aide\n\n\n"
     "Exemples:\n"
     "./fichier -i image.bmp -e -d -m -h -o image_out.bmp\n");
@@ -90,7 +92,7 @@ void parseArgs(int argc,  char **argv, options_t *options) {
     initOptions(options);
 
     int c;
-    while ((c = getopt (argc, argv, "edi:o:m:h")) != -1) 
+    while ((c = getopt (argc, argv, "edi:o:m:f:h")) != -1) 
     {
         switch (c)
         {
@@ -113,10 +115,19 @@ void parseArgs(int argc,  char **argv, options_t *options) {
             case 'h':
                 printUsage();
                 break;
+            case 'f':
+                if (atoi(optarg) != 1 && atoi(optarg) != 2 && atoi(optarg) != 4){
+                    //fprintf(stderr, "n : %i\n", n);
+                    fprintf(stderr, "Error invalid compression rate : %s ! Choose 1, 2 or 4 !\n", optarg);
+                    abort();
+                }
+                options->compressionRate=atoi(optarg);
+                break;
             case '?':
                 if (optopt == 'i' 
                     || optopt == 'o' 
-                    || optopt == 'm' )
+                    || optopt == 'm' 
+                    || optopt == 'f' )
                     fprintf (stderr, "Option -%c requires an argument.\n", optopt);
                 else if (isprint (optopt))
                     fprintf (stderr, "Unknown option `-%c'.\n", optopt);

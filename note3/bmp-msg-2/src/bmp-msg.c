@@ -33,7 +33,7 @@ int actionEncode(options_t *options) {
     int exitCode = encode(
         options->outputFile, 
         options->messageToEncode,
-        options->messageLength); 
+        options->messageLength, options->compressionRate); 
     if(exitCode != ENCODER_OK) 
     {
         fprintf(stderr, "error while encoding %i\n", exitCode);
