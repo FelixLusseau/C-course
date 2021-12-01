@@ -5,12 +5,17 @@
 #include "args-parser.h"
 #include <stdint.h>
 
+int isFileTxt(FILE * file);
 
 /** 
  * @brief encode inside the input file the given message encoded
  * @returns an error type.
  */
 error_type_t encode(FILE*in, const char *message, uint64_t length, uint32_t compressionRate);
+
+error_type_t encodeTxt(FILE*in, const char *message, uint64_t length);
+
+error_type_t decodeTxt(FILE*in, char **message, uint64_t *length);
 
 /** 
  * @brief decode the input file and put the result in a heap allocated message string

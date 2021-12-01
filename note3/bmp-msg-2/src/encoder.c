@@ -1,5 +1,5 @@
 #include "encoder.h"
-
+#include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
 
@@ -10,6 +10,21 @@ int isFileBMP(FILE * file)
     fread(key, 1, 2, file);
 
     return key[0] == 'B' && key[1] == 'M';
+}
+
+int isFileTxt(FILE * file){
+    int ret=1;
+    char key[6];
+    fseek(file, 0, SEEK_SET);
+    fread(key, sizeof(char), 6, file);
+    for (int i = 0; i < 6; i++){
+        //printf("carac %c\n", key[i]);
+        if (!isprint(key[i]))
+            ret=0;
+    }
+    //printf("ret %i\n", ret);
+    fseek(file, 0, SEEK_SET);
+    return ret;
 }
 
 void encode_byte(FILE * in, uint8_t c, uint32_t compressionRate)
@@ -102,9 +117,43 @@ uint32_t getDataSize(FILE *in) {
     return dataSize;
 }
 
+error_type_t encodeTxt(FILE*in, const char *message, uint64_t length){
+    fseek(in, 0, SEEK_END);
+    for(uint32_t i = 0; i < length; i++){
+        for (uint32_t j = 0; j < 8; j++){
+            if ((message[i] & i) == 1){
+                fprintf(in, "\u2060");
+            }
+            else
+                fprintf(in, "\u200B");
+        }
+    }
+    for (uint32_t j = 0; j < 64; j++){
+        if ((length & j) == 1){
+                fprintf(in, "\u2060");
+            }
+            else
+                fprintf(in, "\u200B");
+    }
+    return ENCODER_OK;
+}
+
+error_type_t decodeTxt(FILE*in, char **message, uint64_t *length){
+    fseek(in, -(8*8*3), SEEK_END);
+    char lengthCode[64][3];
+    fread(lengthCode, 3, 64, in);
+    for (int i = 0; i < 64; i++){
+        if (strcmp(lengthCode[i],"\u2060"))
+            *length = *length + 1;
+    }
+    printf("length : %li\n", *length);
+    (void)in;
+    (void)message;
+    return ENCODER_OK;
+}
+
 error_type_t encode(FILE*in, const char *message, uint64_t length, uint32_t compressionRate) 
 {
-
     if(!isFileBMP(in)) return ERROR_WRONG_INPUT_FORMAT;
 
     if((length/compressionRate+8+4+4)*8 > getDataSize(in)) {
@@ -124,12 +173,12 @@ error_type_t encode(FILE*in, const char *message, uint64_t length, uint32_t comp
     for(uint32_t i = 0; i < 4; i++){
         encode_byte(in, (compressionRate >> (4*i)) & 0x7F, 1);
     }
-    printf("Progression : \n");
+    printf("Encode progression : \n");
     for(uint32_t i = 0; i < length; i++) {
         encode_byte(in, message[i], compressionRate);
         printf("\r%li%%", i*100/length);
     }
-    printf("\r100%% ! \n");
+    printf("\r100%% encoded !\n");
     return ENCODER_OK;
 
 }
@@ -166,9 +215,12 @@ error_type_t decode(FILE*in, char **message, uint64_t *length)
     (*message)[*length] = '\0';
 
     // retrieve the message
+    printf("Decode progression : \n");
     for(uint64_t i = 0; i < *length; i++) {
         (*message)[i] = decode_byte(in, compressionRate);
+        printf("\r%li%%", i*100/(*length));
     }
+    printf("\r100%% decoded !\n");
 
     return ENCODER_OK;
 }

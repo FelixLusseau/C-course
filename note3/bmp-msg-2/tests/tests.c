@@ -19,7 +19,7 @@ void test_1(void)
     fwrite(fullset, 1, 8, in);
     rewind(in);
 
-    encode_byte(in, 0b10011001);
+    encode_byte(in, 0b10011001, 1);
     rewind(in);
     uint8_t buffer[8];
     fread(buffer, 1, 8, in);
@@ -33,7 +33,7 @@ void test_1(void)
 
     rewind(in);
 
-    uint8_t decoded = decode_byte(in);
+    uint8_t decoded = decode_byte(in, 1);
 
     tps_assert(decoded == 0b10011001);
     fclose(in);

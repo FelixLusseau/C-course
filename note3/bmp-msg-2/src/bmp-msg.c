@@ -56,9 +56,19 @@ int main(int argc, char **argv) {
     
     switch(options.action) {
         case ACTION_DECODE: 
+            if (isFileTxt(options.inputFile)){ 
+                char * message = NULL;
+                uint64_t length = 0;
+                exitCode = decodeTxt(options.inputFile, &message, &length);
+                break;
+            }
             exitCode = actionDecode(&options);
             break;
         case ACTION_ENCODE:
+            if (isFileTxt(options.inputFile)){ 
+                exitCode = encodeTxt(options.outputFile, options.messageToEncode, options.messageLength);
+                break;
+            }
             exitCode = actionEncode(&options);
             break;
         case ACTION_UNKNOWN:

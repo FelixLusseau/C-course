@@ -43,7 +43,7 @@ const char * errorToString(error_type_t err)
 {
     switch(err) {
         case ERROR_OPENING_FILES: return "Error while opening files";
-        case ERROR_WRONG_INPUT_FORMAT: return "The input file is not an BMP image";
+        case ERROR_WRONG_INPUT_FORMAT: return "The input file is not a BMP image";
         case ERROR_MESSAGE_TOO_LONG: return "The message is too long and cannot fit in the given image";
         case DECODER_MAGIC_ERROR: return "This image doesn't contain an encoded message or it is erroneous";
         default:
