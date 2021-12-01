@@ -142,12 +142,12 @@ error_type_t decodeTxt(FILE*in, char **message, uint64_t *length){
     fseek(in, -(8*8*3), SEEK_END);
     char lengthCode[64][3];
     fread(lengthCode, 3, 64, in);
+    *length=0;
     for (int i = 0; i < 64; i++){
-        if (strcmp(lengthCode[i],"\u2060"))
+        if (!strcmp(lengthCode[i],"\u2060"))
             *length = *length + 1;
     }
     printf("length : %li\n", *length);
-    (void)in;
     (void)message;
     return ENCODER_OK;
 }
